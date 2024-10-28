@@ -1,11 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using UnityEngine;
 
-public class lab04_zad1 : MonoBehaviour
+public class Lab04_zad1 : MonoBehaviour
 {
     List<Vector3> positions = new List<Vector3>();
     public float delay = 3.0f;
@@ -30,7 +29,7 @@ public class lab04_zad1 : MonoBehaviour
 
         for (int i = 0; i < number; i++)
         {
-            this.positions.Add(new Vector3(pozycje_x[i], 5, pozycje_z[i]));
+            this.positions.Add(new Vector3(pozycje_x[i], 0.5f, pozycje_z[i]));
         }
         foreach (Vector3 elem in positions)
         {
