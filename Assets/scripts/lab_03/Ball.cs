@@ -15,10 +15,10 @@ public class Ball : MonoBehaviour
 
     void FixedUpdate()
     {
-        // sk≥adowa y wektora prÍdkoúci
+        // sk≈Çadowa y wektora prƒôdko≈õci
         if (rb.velocity.y == 0)
         {
-            // dzia≥amy si≥π na cia≥o A :)
+            // dzia≈Çamy si≈ÇƒÖ na cia≈Ço A :)
             rb.AddForce(Vector3.up * force, ForceMode.Impulse);
         }
     }
