@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Lab03_zad3 : MonoBehaviour
 {
-    public float speed = 2.0f; // Prêdkoœæ poruszania siê obiektu
+    public float speed = 2.0f; // PrÄ™dkoÅ›Ä‡ poruszania siÄ™ obiektu
     private Vector3 startPosition; // Pozycja startowa
     void Start()
     {
@@ -13,15 +13,15 @@ public class Lab03_zad3 : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(speed * Time.deltaTime, 0, 0); // Przesuniêcie obiektu
+        transform.Translate(speed * Time.deltaTime, 0, 0); // PrzesuniÄ™cie obiektu
 
-        // Sprawdzamy, czy obiekt przemieœci³ siê o 10 jednostek od pozycji startowej
+        // Sprawdzamy, czy obiekt przemieÅ›ciÅ‚ siÄ™ o 10 jednostek od pozycji startowej
         if (Vector3.Distance(transform.position, startPosition) >= 10)
         {
-            // Resetujemy pozycjê startow¹ dla kolejnego boku kwadratu
+            // Resetujemy pozycjÄ™ startowÄ… dla kolejnego boku kwadratu
             startPosition = transform.position;
 
-            // Obracamy obiekt o 90 stopni wokó³ osi Y
+            // Obracamy obiekt o 90 stopni wokÃ³Å‚ osi Y
             transform.Rotate(0, 90, 0);
         }
     }
