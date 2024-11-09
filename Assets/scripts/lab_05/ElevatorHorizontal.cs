@@ -4,40 +4,40 @@ using UnityEngine;
 
 public class ElevatorHorizontal : MonoBehaviour
 {
-    public float elevatorSpeed = 2f; // prêdkoœæ platformy
-    public float distance = 6.6f; // odleg³oœæ jak¹ ma przebyæ platforma
+    public float elevatorSpeed = 2f; // prÄ™dkoÅ›Ä‡ platformy
+    public float distance = 6.6f; // odlegÅ‚oÅ›Ä‡ jakÄ… ma przebyÄ‡ platforma
     private bool isRunning = false; // czy platforma jest w ruchu
     private bool movingToEnd = true; // kierunek ruchu
     private float startPosition; // pozycja startowa
-    private float endPosition; // pozycja koñcowa
+    private float endPosition; // pozycja koÅ„cowa
 
     void Start()
     {
-        // Ustawienie pozycji startowej i koñcowej
+        // Ustawienie pozycji startowej i koÅ„cowej
         startPosition = transform.position.x;
         endPosition = transform.position.x + distance;
     }
 
     void Update()
     {
-        // Jeœli platforma jest w ruchu
+        // JeÅ›li platforma jest w ruchu
         if (isRunning)
         {
-            // Przesuwanie platformy wzglêdem osi X
+            // Przesuwanie platformy wzglÄ™dem osi X
             Vector3 move = transform.right * elevatorSpeed * Time.deltaTime; 
             transform.Translate(move);
 
-            // Jeœli platforma osi¹gnê³a punkt koñcowy
+            // JeÅ›li platforma osiÄ…gnÄ™Å‚a punkt koÅ„cowy
             if (movingToEnd && transform.position.x >= endPosition)
             {
                 movingToEnd = false; // zmiana kierunku ruchu na przeciwny
-                elevatorSpeed = -elevatorSpeed; // ruch w przeciwn¹ stronê
+                elevatorSpeed = -elevatorSpeed; // ruch w przeciwnÄ… stronÄ™
             }
-            // Jeœli platforma osi¹gnê³a punkt pocz¹tkowy
+            // JeÅ›li platforma osiÄ…gnÄ™Å‚a punkt poczÄ…tkowy
             else if (!movingToEnd && transform.position.x <= startPosition)
             {
                 isRunning = false; // zatrzymanie platformy
-                transform.position = new Vector3(startPosition, transform.position.y, transform.position.z); // ustawienie platformy na pozycji startowej w przypadku przesuniêcia
+                transform.position = new Vector3(startPosition, transform.position.y, transform.position.z); // ustawienie platformy na pozycji startowej w przypadku przesuniÄ™cia
             }
         }
     }
@@ -46,12 +46,12 @@ public class ElevatorHorizontal : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Player wszed³ na windê.");
-            // Upewnienie siê, ¿e platforma siê nie porusza
+            Debug.Log("Player wszedÅ‚ na windÄ™.");
+            // Upewnienie siÄ™, Å¼e platforma siÄ™ nie porusza
             if (!isRunning)
             {
-                movingToEnd = true; // ustawienie kierunku ruchu na punkt koñcowy
-                elevatorSpeed = Mathf.Abs(elevatorSpeed); // ruch w stronê punktu koñcowego
+                movingToEnd = true; // ustawienie kierunku ruchu na punkt koÅ„cowy
+                elevatorSpeed = Mathf.Abs(elevatorSpeed); // ruch w stronÄ™ punktu koÅ„cowego
                 isRunning = true;  // uruchomienie platformy
             }
             other.transform.SetParent(transform); // przypisanie gracza do platformy
@@ -62,8 +62,8 @@ public class ElevatorHorizontal : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Player zszed³ z windy.");
-            other.transform.SetParent(null); // usuniêcie przypisania gracza do platformy
+            Debug.Log("Player zszedÅ‚ z windy.");
+            other.transform.SetParent(null); // usuniÄ™cie przypisania gracza do platformy
         }
     }
 }

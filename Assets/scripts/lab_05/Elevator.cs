@@ -40,7 +40,7 @@ public class Elevator : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Player wszed≥ na windÍ.");
+            Debug.Log("Player wszed≈Ç na windƒô.");
 
             if (transform.position.y >= upPosition)
             {
@@ -62,7 +62,7 @@ public class Elevator : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Player zszed≥ z windy.");
+            Debug.Log("Player zszed≈Ç z windy.");
         }
     }
 }

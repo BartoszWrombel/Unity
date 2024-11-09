@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DoorTrigger : MonoBehaviour
 {
-    public List<Door> doors; // lista drzwi, które maj¹ byæ otwarte/zamkniête
+    public List<Door> doors; // lista drzwi, ktÃ³re majÄ… byÄ‡ otwarte/zamkniÄ™te
 
-    // Metoda wywo³ywana, gdy obiekt wejdzie w obszar wykrywania
+    // Metoda wywoÅ‚ywana, gdy obiekt wejdzie w obszar wykrywania
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -20,7 +20,7 @@ public class DoorTrigger : MonoBehaviour
         }
     }
 
-    // Metoda wywo³ywana, gdy obiekt opuœci obszar wykrywania
+    // Metoda wywoÅ‚ywana, gdy obiekt opuÅ›ci obszar wykrywania
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))

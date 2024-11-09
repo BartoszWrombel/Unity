@@ -13,32 +13,32 @@ public class MoveWithCharacterController : MonoBehaviour
 
     private void Start()
     {
-        // zak³adamy, ¿e komponent CharacterController jest ju¿ podpiêty pod obiekt
+        // zakÅ‚adamy, Å¼e komponent CharacterController jest juÅ¼ podpiÄ™ty pod obiekt
         controller = GetComponent<CharacterController>();
     }
 
     void Update()
     {
-        // wyci¹gamy wartoœci, aby mo¿liwe by³o ich efektywniejsze wykorzystanie w funkcji
+        // wyciÄ…gamy wartoÅ›ci, aby moÅ¼liwe byÅ‚o ich efektywniejsze wykorzystanie w funkcji
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
 
-        // dziêki parametrowi playerGrounded mo¿emy dodaæ zachowania, które bêd¹
-        // mog³y byæ uruchomione dla ka¿dego z dwóch stanów
+        // dziÄ™ki parametrowi playerGrounded moÅ¼emy dodaÄ‡ zachowania, ktÃ³re bÄ™dÄ…
+        // mogÅ‚y byÄ‡ uruchomione dla kaÅ¼dego z dwÃ³ch stanÃ³w
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
             playerVelocity.y = 0f;
         }
 
-        // zmieniamy sposób poruszania siê postaci
+        // zmieniamy sposÃ³b poruszania siÄ™ postaci
         // Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        // transform.right odpowiada za ruch wzd³u¿ osi x (pamiêtajmy, ¿e wartoœci bêd¹ zarówno dodatnie
-        // jak i ujemne, a punkt (0,0) jest na œrodku ekranu) a transform.forward za ruch wzd³ó¿ osi z.
+        // transform.right odpowiada za ruch wzdÅ‚uÅ¼ osi x (pamiÄ™tajmy, Å¼e wartoÅ›ci bÄ™dÄ… zarÃ³wno dodatnie
+        // jak i ujemne, a punkt (0,0) jest na Å›rodku ekranu) a transform.forward za ruch wzdÅ‚uÅ¼ osi z.
         Vector3 move = transform.right * moveX + transform.forward * moveZ;
         controller.Move(move * Time.deltaTime * playerSpeed);
 
-        // to ju¿ nam potrzebne nie bêdzie
+        // to juÅ¼ nam potrzebne nie bÄ™dzie
         //if (move != Vector3.zero)
         //{
         //    gameObject.transform.forward = move;
@@ -46,12 +46,12 @@ public class MoveWithCharacterController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && groundedPlayer)
         {
-            // wzór na si³ê 
+            // wzÃ³r na siÅ‚Ä™ 
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
 
-        // prêdkoœæ swobodnego opadania zgodnie ze wzorem y = (1/2 * g) * t-kwadrat 
-        // okazuje siê, ¿e jest to zbyt wolne opadanie, wiêc zastosowano g * t-kwadrat
+        // prÄ™dkoÅ›Ä‡ swobodnego opadania zgodnie ze wzorem y = (1/2 * g) * t-kwadrat 
+        // okazuje siÄ™, Å¼e jest to zbyt wolne opadanie, wiÄ™c zastosowano g * t-kwadrat
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }

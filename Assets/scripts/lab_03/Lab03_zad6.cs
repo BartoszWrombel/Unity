@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Lab03_zad6 : MonoBehaviour
 {
-    public Transform target; // Obiekt, który bêdzie œledzony
-    public float smoothTime = 0.3f; // Czas wyg³adzania
-    private Vector3 velocity = Vector3.zero; // Prêdkoœæ, która bêdzie u¿ywana w SmoothDamp
-    public float lerpSpeed = 0.1f; // Prêdkoœæ Lerp
+    public Transform target; // Obiekt, ktÃ³ry bÄ™dzie Å›ledzony
+    public float smoothTime = 0.3f; // Czas wygÅ‚adzania
+    private Vector3 velocity = Vector3.zero; // PrÄ™dkoÅ›Ä‡, ktÃ³ra bÄ™dzie uÅ¼ywana w SmoothDamp
+    public float lerpSpeed = 0.1f; // PrÄ™dkoÅ›Ä‡ Lerp
 
     void Update()
     {
         // Obliczenie nowej pozycji
-        Vector3 targetPosition = target.position; // Pozycja obiektu œledzonego
+        Vector3 targetPosition = target.position; // Pozycja obiektu Å›ledzonego
 
         // SmoothDamp
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);

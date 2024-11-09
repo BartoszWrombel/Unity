@@ -8,7 +8,7 @@ public class QuaternionRotateToPosition : MonoBehaviour
     public Transform to;
 
     // krok rotacji, wyrazony w procentach, o jaki zostanie wykonana rotacja
-    // w kaødej klatce animacji
+    // w ka≈ºdej klatce animacji
     private float percentage = 0.01f;
 
     void Update()

@@ -14,7 +14,7 @@ public class MoveWithCharacterControllerLab5 : MonoBehaviour
 
     private void Start()
     {
-        // zak³adamy, ¿e komponent CharacterController jest ju¿ podpiêty pod obiekt
+        // zakÅ‚adamy, Å¼e komponent CharacterController jest juÅ¼ podpiÄ™ty pod obiekt
         controller = GetComponent<CharacterController>();
     }
 
@@ -38,7 +38,7 @@ public class MoveWithCharacterControllerLab5 : MonoBehaviour
         }
 
         // zgodnie ze wzorem y = (1/2 * g) * t-kwadrat, ale jednak w trybie play
-        // okazuje siê, ¿e jest to zbyt wolne opadanie, wiêc zastosowano g * t-kwadrat
+        // okazuje siÄ™, Å¼e jest to zbyt wolne opadanie, wiÄ™c zastosowano g * t-kwadrat
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }
@@ -70,7 +70,7 @@ public class MoveWithCharacterControllerLab5 : MonoBehaviour
         body.velocity = pushDir * pushPower;
     }
 
-    // Metoda do wystrzelenia gracza w górê
+    // Metoda do wystrzelenia gracza w gÃ³rÄ™
     public void LaunchPlayer(float launchForce)
     {
         if (groundedPlayer)

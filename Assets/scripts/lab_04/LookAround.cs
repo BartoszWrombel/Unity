@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LookAround : MonoBehaviour
 {
-    // ruch wokó³ osi Y bêdzie wykonywany na obiekcie gracza, wiêc
+    // ruch wokÃ³Å‚ osi Y bÄ™dzie wykonywany na obiekcie gracza, wiÄ™c
     // potrzebna nam referencja do niego (konkretnie jego komponentu Transform)
     public Transform player;
 
@@ -12,22 +12,22 @@ public class LookAround : MonoBehaviour
 
     void Start()
     {
-        // zablokowanie kursora na œrodku ekranu, oraz ukrycie kursora
+        // zablokowanie kursora na Å›rodku ekranu, oraz ukrycie kursora
         Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // pobieramy wartoœci dla obu osi ruchu myszy
+        // pobieramy wartoÅ›ci dla obu osi ruchu myszy
         float mouseXMove = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
         float mouseYMove = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
 
-        // wykonujemy rotacjê wokó³ osi Y
+        // wykonujemy rotacjÄ™ wokÃ³Å‚ osi Y
         player.Rotate(Vector3.up * mouseXMove);
 
-        // a dla osi X obracamy kamerê dla lokalnych koordynatów
-        // -mouseYMove aby unikn¹æ ofektu mouse inverse
+        // a dla osi X obracamy kamerÄ™ dla lokalnych koordynatÃ³w
+        // -mouseYMove aby uniknÄ…Ä‡ ofektu mouse inverse
         transform.Rotate(new Vector3(-mouseYMove, 0f, 0f), Space.Self);
 
     }

@@ -6,11 +6,11 @@ public class CollisionDetect : MonoBehaviour
 {
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        // Sprawdzenie, czy obiekt, z którym zderzy³ siê gracz, ma tag "przeszkoda"
+        // Sprawdzenie, czy obiekt, z ktÃ³rym zderzyÅ‚ siÄ™ gracz, ma tag "przeszkoda"
         if (hit.gameObject.CompareTag("przeszkoda"))
         {
-            // Wyœwietlanie komunikatu z nazw¹ obiektu, z którym dosz³o do kolizji
-            Debug.Log("Player zderzy³ siê z przeszkod¹: " + hit.gameObject.name);
+            // WyÅ›wietlanie komunikatu z nazwÄ… obiektu, z ktÃ³rym doszÅ‚o do kolizji
+            Debug.Log("Player zderzyÅ‚ siÄ™ z przeszkodÄ…: " + hit.gameObject.name);
         }
     }
 }

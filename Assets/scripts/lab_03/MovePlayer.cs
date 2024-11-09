@@ -18,15 +18,15 @@ public class MovePlayer : MonoBehaviour
     }
     void FixedUpdate()
     {
-        // pobranie wartoœci zmiany pozycji w danej osi
-        // wartoœci s¹ z zakresu [-1, 1]
+        // pobranie wartoÅ›ci zmiany pozycji w danej osi
+        // wartoÅ›ci sÄ… z zakresu [-1, 1]
         float mH = Input.GetAxis("Horizontal");
         float mV = Input.GetAxis("Vertical");
 
-        // tworzymy wektor prêdkoœci
+        // tworzymy wektor prÄ™dkoÅ›ci
         Vector3 velocity = new Vector3(mH, 0, mV);
         velocity = velocity.normalized * speed * Time.deltaTime;
-        // wykonujemy przesuniêcie Rigidbody z uwzglêdnieniem si³ fizycznych
+        // wykonujemy przesuniÄ™cie Rigidbody z uwzglÄ™dnieniem siÅ‚ fizycznych
         rb.MovePosition(transform.position + velocity);
     }
 }

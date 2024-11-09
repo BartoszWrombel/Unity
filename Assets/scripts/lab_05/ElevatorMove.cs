@@ -13,7 +13,7 @@ public class ElevatorMove : MonoBehaviour
     {
         if (postions.Count == 0)
         {
-            Debug.LogError("Brak punktów docelowych");
+            Debug.LogError("Brak punktÃ³w docelowych");
         }
 
     }
@@ -21,31 +21,31 @@ public class ElevatorMove : MonoBehaviour
     void Update()
     {
         Vector3 targetPosition = postions[currentTarget]; // pobranie pozycji docelowej z listy
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime); // przesuniêcie platformy w kierunku pozycji docelowej
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime); // przesuniÄ™cie platformy w kierunku pozycji docelowej
 
-        // Jeœli osi¹gniemy punkt docelowy
+        // JeÅ›li osiÄ…gniemy punkt docelowy
         if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
         {
-            // Przesuwamy do nastêpnego punktu lub zawracamy, jeœli dotarliœmy do koñca
-            if (direction) // jeœli kierunek jest zgodny z list¹
+            // Przesuwamy do nastÄ™pnego punktu lub zawracamy, jeÅ›li dotarliÅ›my do koÅ„ca
+            if (direction) // jeÅ›li kierunek jest zgodny z listÄ…
             {
-                if (currentTarget < postions.Count - 1) // jeœli nie jesteœmy na koñcu listy
+                if (currentTarget < postions.Count - 1) // jeÅ›li nie jesteÅ›my na koÅ„cu listy
                 {
                     currentTarget++;
                 }
-                else // jeœli jesteœmy na koñcu listy
+                else // jeÅ›li jesteÅ›my na koÅ„cu listy
                 {
                     direction = false;
                     currentTarget--;
                 }
             }
-            else // jeœli kierunek jest przeciwny do listy
+            else // jeÅ›li kierunek jest przeciwny do listy
             {
-                if (currentTarget > 0) // jeœli nie jesteœmy na pocz¹tku listy
+                if (currentTarget > 0) // jeÅ›li nie jesteÅ›my na poczÄ…tku listy
                 {
                     currentTarget--;
                 }
-                else // jeœli jesteœmy na pocz¹tku listy
+                else // jeÅ›li jesteÅ›my na poczÄ…tku listy
                 {
                     direction = true;
                     currentTarget++;

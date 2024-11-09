@@ -6,21 +6,21 @@ using UnityEngine.UIElements;
 
 public class PressurePlate : MonoBehaviour
 {
-    public float force = 3f; // si³a nacisku
-    // Ustawienie wysokoœci skoku w edytorze zmieniaj¹c tutaj jedynie oddzielnie
-    //public float jump = 10f; // wysokoœæ skoku
+    public float force = 3f; // siÅ‚a nacisku
+    // Ustawienie wysokoÅ›ci skoku w edytorze zmieniajÄ…c tutaj jedynie oddzielnie
+    //public float jump = 10f; // wysokoÅ›Ä‡ skoku
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Player wszed³ na p³ytkê naciskow¹.");
+            Debug.Log("Player wszedÅ‚ na pÅ‚ytkÄ™ naciskowÄ….");
             MoveWithCharacterControllerLab5 CharacterController = other.GetComponent<MoveWithCharacterControllerLab5>();
 
             // Sprawdzenie, czy obiekt posiada komponent MoveWithCharacterControllerLab5
             if (CharacterController != null)
             {
-                // Przypisanie wartoœci skoku z klasy MoveWithCharacterControllerLab5
+                // Przypisanie wartoÅ›ci skoku z klasy MoveWithCharacterControllerLab5
                 float jump = CharacterController.jumpHeight;
                 float launchForce = jump * force;
                 CharacterController.LaunchPlayer(launchForce);

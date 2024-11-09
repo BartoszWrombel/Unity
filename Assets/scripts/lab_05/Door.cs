@@ -4,52 +4,52 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public float doorSpeed = 2f; // prêdkoœæ otwierania drzwi
-    public float distance = 3.0f; // odleg³oœæ otwierania drzwi
-    // dla lewych drzwi trzeba ustawiæ w edytorze wartoœæ ujemn¹
-    private bool isOpening = false; // czy drzwi siê otwieraj¹
-    private bool isClosed = true; // czy drzwi s¹ zamkniête
-    private bool isPlayer = false; // czy gracz jest w zasiêgu drzwi
-    private float closedPosition; // pozycja zamkniêtych drzwi
+    public float doorSpeed = 2f; // prÄ™dkoÅ›Ä‡ otwierania drzwi
+    public float distance = 3.0f; // odlegÅ‚oÅ›Ä‡ otwierania drzwi
+    // dla lewych drzwi trzeba ustawiÄ‡ w edytorze wartoÅ›Ä‡ ujemnÄ…
+    private bool isOpening = false; // czy drzwi siÄ™ otwierajÄ…
+    private bool isClosed = true; // czy drzwi sÄ… zamkniÄ™te
+    private bool isPlayer = false; // czy gracz jest w zasiÄ™gu drzwi
+    private float closedPosition; // pozycja zamkniÄ™tych drzwi
     private float openPosition; // pozycja otwartych drzwi
 
     void Start()
     {
-        // Ustawienie pozycji startowej i koñcowej drzwi
+        // Ustawienie pozycji startowej i koÅ„cowej drzwi
         closedPosition = transform.position.z;
         openPosition = transform.position.z + distance;
     }
 
     void Update()
     {
-        // Sprawdzamy, czy drzwi s¹ w trakcie otwierania
+        // Sprawdzamy, czy drzwi sÄ… w trakcie otwierania
         if (isOpening)
         {
-            // Sprawdzamy, czy drzwi s¹ zamkniête, jeœli tak, to otwieramy je
+            // Sprawdzamy, czy drzwi sÄ… zamkniÄ™te, jeÅ›li tak, to otwieramy je
             if (isClosed)
             {
                 // Wykonujemy ruch drzwi w kierunku otwarcia
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, transform.position.y, openPosition), doorSpeed * Time.deltaTime);
-                // Sprawdzamy, czy drzwi osi¹gnê³y pozycjê otwarcia
+                // Sprawdzamy, czy drzwi osiÄ…gnÄ™Å‚y pozycjÄ™ otwarcia
                 if (transform.position.z >= openPosition && distance > 0 || transform.position.z <= openPosition && distance < 0)
                 {
                     isOpening = false;
                     isClosed = false;
                 }
             }
-            // Jeœli drzwi s¹ otwarte, zamykamy je
+            // JeÅ›li drzwi sÄ… otwarte, zamykamy je
             else
             {
-                // Wykonujemy ruch drzwi w kierunku zamkniêcia
+                // Wykonujemy ruch drzwi w kierunku zamkniÄ™cia
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, transform.position.y, closedPosition), doorSpeed * Time.deltaTime);
-                // Sprawdzamy, czy drzwi osi¹gnê³y pozycjê zamkniêcia
+                // Sprawdzamy, czy drzwi osiÄ…gnÄ™Å‚y pozycjÄ™ zamkniÄ™cia
                 if (transform.position.z <= closedPosition && distance > 0 || transform.position.z >= closedPosition && distance < 0)
                 {
                     isOpening = false;
                     isClosed = true;
                 }
             }
-            // Jeœli gracz nie jest w zasiêgu drzwi i wyszed³ z zasiêgu przed zakoñczeniem otwierania, zamykamy drzwi
+            // JeÅ›li gracz nie jest w zasiÄ™gu drzwi i wyszedÅ‚ z zasiÄ™gu przed zakoÅ„czeniem otwierania, zamykamy drzwi
             if (!isPlayer)
             {
                 CloseDoor();
@@ -60,7 +60,7 @@ public class Door : MonoBehaviour
 
     public void OpenDoor()
     {
-        if (isClosed) // Otwieramy tylko, jeœli drzwi s¹ zamkniête
+        if (isClosed) // Otwieramy tylko, jeÅ›li drzwi sÄ… zamkniÄ™te
         {
             isOpening = true;
         }
@@ -68,12 +68,12 @@ public class Door : MonoBehaviour
 
     public void CloseDoor()
     {
-        if (!isClosed) // Zamykamy tylko, jeœli drzwi s¹ otwarte
+        if (!isClosed) // Zamykamy tylko, jeÅ›li drzwi sÄ… otwarte
         {
             isOpening = true;
         }
     }
-    // Ustawienie, czy gracz jest w zasiêgu drzwi
+    // Ustawienie, czy gracz jest w zasiÄ™gu drzwi
     public void SetPlayer(bool player)
     {
         isPlayer = player;

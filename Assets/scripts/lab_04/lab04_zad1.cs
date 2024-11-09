@@ -46,7 +46,7 @@ public class Lab04_zad1 : MonoBehaviour
 
     IEnumerator GenerujObiekt()
     {
-        Debug.Log("wywo≥ano coroutine");
+        Debug.Log("wywo≈Çano coroutine");
         foreach (Vector3 pos in positions)
         {
             GameObject newBlock = Instantiate(this.block, this.positions.ElementAt(this.objectCounter++), Quaternion.identity);
@@ -54,7 +54,7 @@ public class Lab04_zad1 : MonoBehaviour
             if (materials.Length > 0)
             {
                 Material randomMaterial = materials[UnityEngine.Random.Range(0, materials.Length)];
-                newBlock.GetComponent<Renderer>().material = randomMaterial; // Przypisanie materia≥u do kostki
+                newBlock.GetComponent<Renderer>().material = randomMaterial; // Przypisanie materia≈Çu do kostki
             }
 
             yield return new WaitForSeconds(this.delay);
